@@ -9,7 +9,7 @@ module rptr_handler #(parameter PTR_WIDTH=3) (
   reg [PTR_WIDTH:0] g_rptr_next;
 
 //if read not empty and r_en, increase read pointer
-  ksa_adder #(PTR_WIDTH) adder(.a(b_rptr), .b(r_en & !empty), .sum(b_rptr_next));
+  ksa_adder #(PTR_WIDTH) adder(.a(b_rptr), .b(r_en & !empty), .cin(1'b0), .sum(b_rptr_next));
 //  assign b_rptr_next = b_rptr+(r_en & !empty);
 
 

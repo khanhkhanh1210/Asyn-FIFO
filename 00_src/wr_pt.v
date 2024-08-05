@@ -11,7 +11,7 @@ module wptr_handler #(parameter PTR_WIDTH=3) (
   reg wrap_around;
   wire wfull;
   
-  ksa_adder #(PTR_WIDTH) adder(.a(b_wptr), .b(w_en & !full), .sum(b_wptr_next));
+  ksa_adder #(PTR_WIDTH) adder(.a(b_wptr), .b(w_en & !full), .sum(b_wptr_next), .cin(1'b0));
 //  assign b_wptr_next = b_wptr+(w_en & !full);
   assign g_wptr_next = (b_wptr_next >> 1)^b_wptr_next;
   
