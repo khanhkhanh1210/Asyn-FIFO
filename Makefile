@@ -8,14 +8,14 @@ PHONY: syn
 syn: clean-syn
 	genus -f ./03_synth/genus_shell.tcl
 ##################################################
-#GUI = -gui
+GUI = -gui
 tb_file := 01_tb/testtop.v
-
+filelist := 00_src/flist.f
 PHONY: sim
 sim:
 	xrun $(GUI) +xm64bit -sv \
 	-vlogext .sv \
-	-f 00_src/flist.f \
+	-f $(filelist) \
 	$(tb_file) \
 	-timescale 1ns/10ps \
 	+access+rcw
